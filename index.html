@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Настройка игры</title>
+</head>
+<body>
+    <div class="content">
+        <div class="main">
+            <div class="state">
+                <div class="state__title">Пары</div>
+                <div>Шаги: <span>0</span></div>
+                <div>Время: <span>60 сек</span></div>
+            </div>
+            <div class="description">
+                <p>Настроить количество карточек (от 2 до 6)</p>
+            </div>
+            <input type="number" min="2" max="6" value="2" step="2" class="board__input" placeholder="По горизонтали / вертикали">
+            <button class="board__button">НАЧАТЬ</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

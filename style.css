@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+}
+
+/* Обертка всего контента игры */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  min-height: 100vh;
+}
+
+/* В этом элементе сгруппированы все элементы карточки игры: заголовки, игровая информация, поле ввода, кнопка, а в будущем и игровое поле */
+.main {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+/* Элемент, в котором группируются вся игровая информация: название игры, кол-во шагов и оставшееся время */
+.state {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Название игры */
+.state__title{
+  font-size: 36px;
+  text-align: center;
+  margin: 15px 0;
+}
+
+/* Поле ввода числового типа */
+.board__input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  border: 2px solid rgba(0,0,0, .2);
+  border-radius: 40px;
+  font-size: 16px;
+  padding: 20px 45px 20px 20px;
+  margin: 30px 0;
+
+}
+
+/* Стили для замещающего текста внутри поля ввода */
+.board__input::placeholder {
+  color: black;
+}
+
+/* Стили для состояния focus поля ввода */
+.board__input:focus {
+  border: 2px solid black;
+}
+
+/* Кнопка "Начать" */
+.board__button  {
+  width: 100%;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #fff;
+  color:#000;
+  border-radius: 40px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+/* Состояние наведения курсора мыши на кнопку */
+.board__button:hover{
+  color: rgba(181, 13, 181, 0.7);
+}
