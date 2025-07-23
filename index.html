@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Настройка игры</title>
+    <link rel="stylesheet" href="style.css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title></title>
 </head>
 <body>
     <div class="content">
@@ -20,6 +20,18 @@
             <input type="number" min="2" max="6" value="2" step="2" class="board__input" placeholder="По горизонтали / вертикали">
             <button class="board__button">НАЧАТЬ</button>
         </div>
+
+        <template id="gameTableTemplate">
+            <div class="table"></div>
+            <button class="table__button">Рестарт</button>
+        </template>
+
+        <template id="cardTemplate">
+            <div class="card">
+                <i class="flipped-icon fa" id="flippedIcon"></i>
+                <i class="default-icon fa fa-question-circle"></i>
+            </div>
+        </template>
     </div>
     <script src="index.js"></script>
 </body>
