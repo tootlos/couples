@@ -62,41 +62,43 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function createCard(iconName) {
-    const cardTemplate = document.getElementById('cardTemplate');
-    const templateContent = cardTemplate.content.cloneNode(true);
-    const cardElement = templateContent.querySelector('.card');
-    
-    const iconElement = document.createElement('i');
-    iconElement.className = `fa fa-${iconName}`;
-    cardElement.appendChild(iconElement);
-
-    const flippedElement = cardElement.querySelector('#flippedIcon');
-    if (flippedElement) {
-      flippedElement.classList.add(`fa-${iconName}`);
-    }
-    
-    return cardElement;
+  const cardTemplate = document.getElementById('cardTemplate');
+  const templateContent = cardTemplate.content.cloneNode(true);
+  const cardElement = templateContent.querySelector('.card');
+ 
+  while (cardElement.firstChild) {
+    cardElement.removeChild(cardElement.firstChild);
   }
+
+  const iconElement = document.createElement('i');
+  iconElement.className = `fa fa-${iconName}`;
+  cardElement.appendChild(iconElement);
+
+  const flippedElement = document.createElement('i');
+  flippedElement.className = `fa fa-${iconName} flippedIcon`;  
+  cardElement.appendChild(flippedElement);
+  return cardElement;
+}
 
   function createIconsArray(initialCount) {
-    const cardsIcons = [
-      "compass", "cloud", "play", "bolt", "stop",
-      "cogs", "atom", "basketball-ball", "arrows",
-      "angle-left", "bars", "file", "filter", "gear",
-      "folder", "folder-open", "shield", "scissors", "pen-clip",
-    ];
-
-    let cards = cardsIcons.slice(0, Math.floor(initialCount / 2));
-    
-    function dublicateElements(array) {
-      const dublicatedArray = [];
-      array.forEach(item => {
-        dublicatedArray.push(item, item); 
-      });
-      return dublicatedArray;
-    }
-
-    let doubleCards = dublicateElements(cards);
-    return shuffleArray(doubleCards);
+  const cardsIcons = [
+    "compass", "cloud", "play", "bolt", "stop",
+    "cogs", "atom", "basketball-ball", "arrows",
+    "angle-left", "bars", "file", "filter", "gear",
+    "folder", "folder-open", "shield", "scissors", "pen-clip",
+  ];
+  // Убедитесь, что количество уникальных иконок не превышает доступные
+  const uniqueIconsCount = Math.min(Math.floor(initialCount / 2), cardsIcons.length);
+  let cards = cardsIcons.slice(0, uniqueIconsCount);
+  
+  function dublicateElements(array) {
+    const dublicatedArray = [];
+    array.forEach(item => {
+      dublicatedArray.push(item, item); 
+    });
+    return dublicatedArray;
   }
+  let doubleCards = dublicateElements(cards);
+  return shuffleArray(doubleCards);
+}
 });
