@@ -6,6 +6,8 @@
 
 body {
   font-family: Verdana, sans-serif;
+  background-image: url(./Фон.png);
+  background-size: cover;
 }
 
 
@@ -114,6 +116,55 @@ body {
 
 .card:hover {
   background-color: rgba(218, 69, 218, 1);
+}
+
+.card.flipped {
+  background-color: var(--card-bg);
+  transform: rotateY(180deg);
+}
+
+.card.matched {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.card.flipped i {
+  display: block;
+}
+
+.card:not(.flipped) i {
+  display: none;
+}
+
+
+.card:hover:not(.matched) {
+  background-color: var(--primary-hover);
+}
+
+.board__button:hover, 
+.button:hover {
+  color: var(--accent-color);
+}
+
+.state__stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.state__moves, .state__time {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.description {
+    margin: 15px 0;
+    color: #555;
+}
+
+#movesCount, #timeCount {
+    color: #d845da;
+    font-weight: bold;
 }
 
 

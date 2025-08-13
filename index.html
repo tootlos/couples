@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title></title>
+    <title>Игра "Пары"</title>
 </head>
 <body>
     <div class="content">
         <div class="main">
             <div class="state">
                 <div class="state__title">Пары</div>
-                <div>Шаги: <span>0</span></div>
-                <div>Время: <span>60 сек</span></div>
+                
             </div>
             <div class="description">
                 <p>Настроить количество карточек (от 2 до 6)</p>
@@ -30,7 +29,11 @@
         <template id="cardTemplate">
             <div class="card">
                 <i class="flipped-icon fa" id="flippedIcon"></i>
-                <i class="default-icon fa fa-question-circle"></i>
+                <!-- <i class="default-icon fa fa-question-circle"></i> -->
+            </div>
+            <div class="stats">
+                <div class="stats__moves">Шаги: <span class="moves-count">0</span></div>
+                <div class="stats__time">Время: <span class="time-count">60</span> сек</div>
             </div>
         </template>
     </div>
