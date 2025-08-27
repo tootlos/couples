@@ -118,7 +118,34 @@ body {
   background-color: rgba(218, 69, 218, 1);
 }
 
-.card.flipped {
+.card i {
+  display: none;
+}
+.card i+i{
+  display: block;
+}
+
+.card.flipped{
+  background: #e11284 !important;
+  transform: perspective(100px) rotateY(180deg);
+}
+
+.card.flipped i {
+  display: block;
+}
+
+.card.flipped i+i {
+  display: none;
+}
+
+
+.card.matched{
+  background: #1dd032 !important;
+  transform: scale(0.95);
+}
+
+
+/* .card.flipped {
   background-color: var(--card-bg);
   transform: rotateY(180deg);
 }
@@ -132,14 +159,11 @@ body {
   display: block;
 }
 
-.card:not(.flipped) i {
-  display: none;
-}
 
 
 .card:hover:not(.matched) {
   background-color: var(--primary-hover);
-}
+} */
 
 .board__button:hover, 
 .button:hover {
