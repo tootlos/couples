@@ -67,7 +67,7 @@ body {
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: #fff;
+  background: rgba(255,255,255, .05);
   color:#000;
   border-radius: 40px;
   padding: 20px;
@@ -83,7 +83,7 @@ body {
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: #fff;
+  background: #fff ;
   color: #000;
   border-radius: 40px;
   padding: 20px;
@@ -181,14 +181,27 @@ body {
     font-weight: bold;
 }
 
-.description {
-    margin: 15px 0;
-    color: #555;
-}
 
 #movesCount, #timeCount {
     color: #d845da;
     font-weight: bold;
 }
 
+
+.confetti{
+  position: absolute;
+  width: 80%;
+  height: 100vh;
+  z-index: 1;
+  top: 0;
+  left: 10%;
+  pointer-events: none;
+}
+
+@keyframes moveDown {
+  100% {
+    top: 110%;
+    transform: rotate(360deg);
+  }
+}
 

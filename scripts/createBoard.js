@@ -1,13 +1,17 @@
 import { createCard, createIconsArray } from './cards.js';
 import { startTimer, totalTime } from './timer.js';
-import { totalFlips, } from './cards.js';
-// import { gameState } from './gameLogic.js';
+import { totalFlips } from './cards.js';
 
 let movesCountElement, timeCountElement;
 
 export function updateStats() {
-    movesCountElement.textContent = totalFlips;
-    timeCountElement.textContent = totalTime;
+
+    if (movesCountElement) {
+        movesCountElement.textContent = totalFlips;
+    }
+    if (timeCountElement) {
+        timeCountElement.textContent = totalTime;
+    }
 }
 
 export function createBoard(columns, count) {
@@ -16,8 +20,12 @@ export function createBoard(columns, count) {
 
     const templateContent = template.content.cloneNode(true);
     const tableElement = templateContent.querySelector('.table');
-    const restartButton = templateContent.querySelector('.table__button');
+
+    const restartButton = templateContent.querySelector('.board__button'); 
     const mainElement = document.querySelector('.main');
+
+
+    mainElement.innerHTML = ''; 
 
     tableElement.innerHTML = '';
     tableElement.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
@@ -27,23 +35,22 @@ export function createBoard(columns, count) {
         tableElement.appendChild(createCard(icon));
     });
 
-    mainElement.innerHTML = '';
     mainElement.appendChild(templateContent);
 
+
     const statsElement = document.createElement('div');
-    statsElement.classList.add('stats');
+    statsElement.classList.add('state'); 
     statsElement.innerHTML = `
-        <div class="stats__moves">Шаги: <span id="movesCount"></span></div>
-        <div class="stats__time">Время: <span id="timeCount"></span></div>
+        <h1>Пары</h1>
+        <p class="state__moves">Шаги: <span class="moves-count">0</span></p>
+        <p class="state__time">Время: <span class="time-count">60</span> сек</p>
     `;
 
-    mainElement.appendChild(statsElement);
+    mainElement.prepend(statsElement); 
 
-    movesCountElement = document.getElementById('movesCount');
-    timeCountElement = document.getElementById('timeCount');
-
-
-
+   
+    movesCountElement = statsElement.querySelector('.moves-count');
+    timeCountElement = statsElement.querySelector('.time-count');
 
     startTimer(updateStats);
 
@@ -53,4 +60,3 @@ export function createBoard(columns, count) {
         });
     }
 }
-

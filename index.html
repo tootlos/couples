@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,28 @@
     <link rel="stylesheet" href="style.css">
     <title>Игра "Пары"</title>
 </head>
+
 <body>
     <div class="content">
         <div class="main">
             <div class="state">
-                <div class="state__title">Пары</div>
-                <div class="stats">
-                    <div class="stats__moves">Шаги: <span class="moves-count">0</span></div>
-                    <div class="stats__time">Время: <span class="time-count">60</span> сек</div>
-                </div>
+                <h1>Пары</h1>
+                <p class="state__moves">Шаги: <span class="moves-count">0</span></p>
+                <p class="state__time">Время: <span class="time-count">60</span> сек</p>
             </div>
-            <div class="description">
+            <div class="board__title">
                 <p>Настроить количество карточек (от 2 до 6)</p>
             </div>
-            <input type="number" min="2" max="6" value="2" step="2" class="board__input" placeholder="По горизонтали / вертикали">
+
+            <input type="number" min="2" max="6" value="2" step="2" class="board__input"
+                placeholder="По горизонтали / вертикали">
             <button class="board__button">НАЧАТЬ</button>
         </div>
 
         <template id="gameTableTemplate">
             <div class="table"></div>
-            
-            <button class="table__button">Рестарт</button>
+
+            <button class="board__button">Рестарт</button>
         </template>
 
         <template id="cardTemplate">
@@ -35,9 +37,12 @@
                 <i class="flipped-icon fa" id="flippedIcon"></i>
                 <i class="default-icon fa fa-question-circle"></i>
             </div>
-            
         </template>
+    </div>
+    <div class="confetti">
+        
     </div>
     <script type='module' src="index.js"></script>
 </body>
+
 </html>

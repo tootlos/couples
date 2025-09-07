@@ -1,5 +1,6 @@
 import { stopTimer } from './timer.js';
 import { totalFlips } from './cards.js';
+import { generateConfetti } from './confetti.js';  
 
 
 let gameState = {
@@ -31,10 +32,22 @@ function resetTurn() {
     gameState.lockBoard = false;
 }
 
+const confettiArray = generateConfetti(100);
+
+export function startConfetti() {
+    const confettiContainer = document.querySelector('.confetti');
+    if (!confettiContainer) return;
+    confettiContainer.innerHTML = '';
+    confettiArray.forEach(confetti => {
+        confettiContainer.appendChild(confetti);
+    });
+}
+
 function isWin() {
     const cards = document.querySelectorAll('.card');
     if (cards.length > 0 && Array.from(cards).every(card => card.classList.contains('matched'))) {
         stopTimer();
+        startConfetti();
         setTimeout(() => {
             alert(`Ты нашёл все пары за ${totalFlips} ходов!`);
         }, 500);
