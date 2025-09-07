@@ -11,7 +11,7 @@ export function generateConfetti(num) {
         // Метод createElement создает HTML-элемент, 
         // тег которого указывается строкой аргументом, 
         // а ссылка на готовый элемент сохраняется в переменную confetti
-        const confetti = document.createElement('div'); // Ошибка 4: вместо "variable" нужно "const"
+        const confetti = document.createElement('div'); 
 
         // Заполняем около-рандомные стили для элемента конфетти
         confetti.style.position = 'absolute';
@@ -25,8 +25,8 @@ export function generateConfetti(num) {
         confetti.style.animation = `moveDown ease-in-out ${((Math.random() + 0.2) * 10)}s infinite`;
 
         // Вставляем готовый элемент конфетти в массив
-        confettiArray.push(confetti); // Ошибка 11: опечатка "compotik" → "confetti"
+        confettiArray.push(confetti); 
     }
     // Возвращаем готовый массив конфетти.
-    return confettiArray; // Ошибка 12: "backturn" → "return"
+    return confettiArray; 
 }
